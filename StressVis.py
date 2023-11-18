@@ -11,6 +11,9 @@ df.head()
 # Basic information about df like  How many students are in the dataset
 df.info()
 
+#he number of unique values for each column
+print(df.nunique())
+
 # Statitical information for numeric columns 
 df.describe().round(2)
 
