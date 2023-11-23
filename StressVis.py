@@ -5,44 +5,53 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Loading dataset to Notebook via pandas 
-df = pd.read_csv("DataSet/StressLevelDataset.csv")
-df.head()
+data = pd.read_csv("DataSet/StressLevelDataset.csv")
+data.head()
 
 # Basic information about df like  How many students are in the dataset
-df.info()
+data.info()
 
 #he number of unique values for each column
-print(df.nunique())
+print(data.nunique())
 
 # Statitical information for numeric columns 
-df.describe().round(2)
+data.describe().round(2)
 
 # Checking for duplicates 
-df.duplicated().sum()
+data.duplicated().sum()
 
 # Checking if we have missing values 
-df.isna().sum()
+data.isna().sum()
 
 #Data Display
 r = 3
 c = 7
 it = 1
-for i in df.columns:
+for i in data.columns:
     plt.subplot(r, c, it)
-    if df[i].nunique() > 6:
-        sns.kdeplot(df[i])
+    if data[i].nunique() > 6:
+        sns.kdeplot(data[i])
         plt.grid()
     else:
-        sns.countplot(x=df[i])
+        sns.countplot(x=data[i])
     it += 1
 plt.tight_layout()
 plt.show()
 
 # Calculate the correlation of every column
-correlation_df= df.corr()
+correlation_df= data.corr()
 
 # Create a heatmap
 plt.figure(figsize=(14, 10))
 sns.heatmap(data=correlation_df, annot=True, cmap='coolwarm')
 plt.title("What tends to a higher stress level?", fontweight='bold')
 plt.show()
+print("data --------------")
+data
+
+#top=0.984,
+bottom=0.061,
+left=0.039,
+right=0.991,
+hspace=0.227,
+wspace=0.433
