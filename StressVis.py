@@ -47,11 +47,9 @@ sns.heatmap(data=correlation_df, annot=True, cmap='coolwarm')
 plt.title("What tends to a higher stress level?", fontweight='bold')
 plt.show()
 print("data --------------")
-data
 
-#top=0.984,
-bottom=0.061,
-left=0.039,
-right=0.991,
-hspace=0.227,
-wspace=0.433
+
+#top=0.984
+
+
+data.plot(kind="box",subplots=True,layout=(6,2),figsize=(15,20));
